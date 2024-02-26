@@ -1,6 +1,8 @@
 sap.ui.require([
-    "sap/m/Text"
-], function (Text) {
+    "sap/ui/model/json/JSONModel",
+	"sap/ui/core/mvc/XMLView",
+    "sap/ui/model/BindingMode"
+], function (JSONModel, XMLView, BindingMode) {
     "use strict";
 
     // Attach an anonymous function to the SAPUI5 'init' event
@@ -8,14 +10,19 @@ sap.ui.require([
         // Create a text UI element that displays a hardcoded text string
         // Create a JSON model from an object literal
         var oModel = new JSONModel({
-            greetingText: "Hi, my name is Harry Hawk"
+            firstName: "Harry",
+            lastName: "Hawk",
+            enabled: true,
+            panelHeaderText: "Data Binding Basics"
         });
-
+        //oModel.setDefaultBindingMode(BindingMode.OneWay);
         // Assign the model object to the SAPUI5 core
         sap.ui.getCore().setModel(oModel);
 
 
-        // Create a text UI element that displays a hardcoded text string
-        new Text({ text:  "{/greetingText}" }).placeAt("content");
+        // Display the XML view called "App"
+        new XMLView({
+            viewName: "ui5.databinding.view.App"
+        }).placeAt("content");
     });
 });
