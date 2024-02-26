@@ -13,7 +13,12 @@ sap.ui.require([
             firstName: "Harry",
             lastName: "Hawk",
             enabled: true,
-            panelHeaderText: "Data Binding Basics"
+            address: {
+                street: "Dietmar-Hopp-Allee 16",
+                city: "Walldorf",
+                zip: "69190",
+                country: "Germany"
+            }
         });
 
         // Assign the model object to the SAPUI5 core
