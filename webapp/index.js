@@ -20,7 +20,7 @@ sap.ui.require([
                 country: "Germany"
             },
             salesAmount: 12345.6789,
-			currencyCode: "EUR"
+            currencyCode: "EUR"
         });
 
         // Assign the model object to the SAPUI5 core
@@ -35,9 +35,14 @@ sap.ui.require([
         // Assign the model object to the SAPUI5 core using the name "i18n"
         sap.ui.getCore().setModel(oResourceModel, "i18n");
 
-        // Display the XML view called "App"
-        new XMLView({
+        const oView = new XMLView({
             viewName: "ui5.databinding.view.App"
-        }).placeAt("content");
+        });
+
+        // Register the view with the message manager
+        sap.ui.getCore().getMessageManager().registerObject(oView, true);
+
+        // Display the XML view called "App"
+        oView.placeAt("content");
     });
 });

@@ -1,8 +1,7 @@
 sap.ui.define([
 	"sap/ui/core/mvc/Controller",
 	"sap/m/library",
-    "sap/ui/model/resource/ResourceModel"
-], function (Controller, mobileLibrary, ResourceModel) {
+], function (Controller, mobileLibrary) {
 	"use strict";
 
 	return Controller.extend("ui5.databinding.controller.App", {
