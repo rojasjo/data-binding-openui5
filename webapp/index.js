@@ -7,7 +7,7 @@ sap.ui.require([
 
     // Attach an anonymous function to the SAPUI5 'init' event
     sap.ui.getCore().attachInit(function () {
-        
+
         var oProductModel = new JSONModel();
 		oProductModel.loadData("./model/Products.json");
 		sap.ui.getCore().setModel(oProductModel, "products");
@@ -25,12 +25,13 @@ sap.ui.require([
                 country: "Germany"
             },
             salesAmount: 12345.6789,
-            currencyCode: "EUR"
+            currencyCode: "EUR",
+            priceThreshold: 20
         });
 
         // Assign the model object to the SAPUI5 core
         sap.ui.getCore().setModel(oModel);
-
+       
         var oResourceModel = new ResourceModel({
             bundleName: "ui5.databinding.i18n.i18n",
             supportedLocales: ["", "de"],
